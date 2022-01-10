@@ -1,0 +1,77 @@
+.top-section {
+  background: $purple;
+  color: $white;
+  height: 900px;
+  //   position: relative;
+
+  header {
+    padding-top: 20px;
+  }
+}
+.hero {
+  margin-top: 100px;
+  text-align: center;
+  h2 {
+    width: 100%;
+    margin: auto;
+    font-weight: normal;
+    font-size: 3rem;
+    line-height: 60px;
+    letter-spacing: -0.02em;
+    svg {
+      position: relative;
+      top: -20px;
+      left: 20px;
+    }
+    span {
+      position: relative;
+      top: -60px;
+      left: 20px;
+    }
+  }
+  p {
+    max-width: 462px;
+    width: 100%;
+    margin: auto;
+    margin-top: -20px;
+    font-size: 1.125rem;
+    line-height: 28px;
+    color: $grey;
+  }
+  .input-area {
+    @extend .flex-ac-jc;
+    gap: 15px;
+    margin-top: 40px;
+    input {
+      background: transparent;
+      border: 1px solid $grey;
+      border-radius: 9px;
+      max-width: 375px;
+      width: 100%;
+      height: 48px;
+      outline: none !important;
+      padding-left: 15px;
+      &::placeholder {
+        color: $grey;
+      }
+    }
+    button {
+      background: $mindaro;
+      border: 1px solid $mindaro;
+      box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      font-weight: normal;
+      font-size: 1rem;
+      color: #613eea;
+    }
+  }
+  img {
+    // position: absolute;
+    // bottom: 0;
+    margin-top: -77px;
+  }
+}
