@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import Hero from "./components/Hero"
 import Details from "./components/Details"
+import Footer from "./components/Footer"
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         </section>
       </section>
       <Details />
+      <Footer />
     </main>
   )
 }

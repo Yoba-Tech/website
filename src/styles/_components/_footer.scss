@@ -1,0 +1,38 @@
+.footer {
+  background: #101828;
+  padding: 100px 0;
+
+  p,
+  a {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.125rem;
+    line-height: 28px;
+    color: #98a2b3;
+  }
+  & > .container {
+    @extend .flex-ac-jc;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .logo {
+    margin-bottom: 20px;
+  }
+  .links {
+    @extend .flex-ac-jc;
+    gap: 20px;
+  }
+  .policy {
+    @extend .flex-ac-jc;
+    gap: 40px;
+  }
+}
+
+@include media("<=375px") {
+  .footer {
+    padding: 80px 0;
+    .policy {
+      gap: 25px;
+    }
+  }
+}
