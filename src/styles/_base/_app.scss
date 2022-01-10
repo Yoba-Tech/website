@@ -1,0 +1,31 @@
+// App level styles
+a,
+button {
+  cursor: pointer;
+}
+
+a {
+  color: $blue;
+}
+
+.flex-ac-jb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-ac-jc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-ac {
+  display: flex;
+  align-items: center;
+}
+
+[role="button"],
+[role="presentation"] {
+  cursor: pointer;
+}

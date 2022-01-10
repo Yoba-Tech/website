@@ -1,0 +1,21 @@
+/* SASS Variables */
+$black: #000;
+$primary-body: #3d3c3c;
+$white: #fff;
+$green: #66921b;
+$blue: #59798b;
+$blue-2: #cee0ee;
+$blue-3: #eff2f6;
+$yellow: #feeeb8;
+
+//Responsive Variables
+$breakpoints: (
+  phone: 320px,
+  phone2x: 480px,
+  phone3x: 768px,
+  tablet: 992px,
+  tablet2x: 1024px,
+  desktop: 1200px,
+  desktop2x: 1440px,
+  desktop3x: 1680px,
+);
