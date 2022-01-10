@@ -1,8 +1,10 @@
 .top-section {
   background: $purple;
   color: $white;
-  height: 900px;
-  //   position: relative;
+  min-height: 900px;
+  max-height: 1024px;
+  height: 100vh;
+  position: relative;
 
   header {
     padding-top: 20px;
@@ -64,14 +66,74 @@
       align-items: center;
       justify-content: center;
       height: 48px;
+      width: 157px;
       font-weight: normal;
       font-size: 1rem;
       color: #613eea;
+      white-space: nowrap;
     }
   }
   img {
-    // position: absolute;
-    // bottom: 0;
-    margin-top: -77px;
+    // width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+@include media("<=phone2x") {
+  .hero {
+    margin-top: 60px;
+    h2 {
+      font-size: 2.25rem;
+      line-height: 44px;
+      svg {
+        top: -25px;
+        left: 0;
+        width: 60%;
+      }
+    }
+    p {
+      margin-top: -30px;
+      font-size: 1rem;
+      line-height: 24px;
+    }
+    .input-area {
+      flex-direction: column;
+      align-items: start;
+      input {
+        max-width: unset;
+      }
+    }
+  }
+}
+
+@include media("<=414px") {
+  .hero {
+    img {
+      width: 100%;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+  }
+}
+
+@include media("<=360px") {
+  .hero {
+    margin-top: 40px;
+    h2 {
+      font-size: 1.75rem;
+      svg {
+        left: -10px;
+        width: 51%;
+      }
+      span {
+        left: 0;
+      }
+    }
+  }
+  .top-section {
+    min-height: 850px;
   }
 }

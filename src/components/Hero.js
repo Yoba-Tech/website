@@ -1,6 +1,18 @@
 import phoneImg from "../images/phone.png"
+import phoneImgSm from "../images/phoneSm.png"
+import { useWindowSize, useMediaQuery } from "../hooks"
+import { useEffect, useState } from "react"
 
 const Hero = () => {
+    const windowSize = useWindowSize()
+    const isTablet = useMediaQuery("(max-width: 1041px)")
+    const isPhone = useMediaQuery("(max-width: 650px)")
+    const [right, setRight] = useState(0)
+
+    useEffect(() => {
+        const phoneImg = document.querySelector('#phoneImg')
+        setRight((windowSize.width - phoneImg.width) / 2)
+    }, [windowSize])
 
     return (
         <section className="hero">
@@ -21,7 +33,14 @@ const Hero = () => {
                 <input type="text" placeholder="Email address" />
                 <button>Get early access</button>
             </div>
-            <img id="phoneImg" src={phoneImg} alt="phone" />
+            {!isPhone ? <img
+                style={{ left: `${isTablet ? 0 : `${right}px`}`, width: `${isTablet ? "100%" : "auto"}` }}
+                id="phoneImg"
+                src={phoneImg} alt="phone" />
+                : <img
+                    style={{ left: `${right}px` }}
+                    id="phoneImg"
+                    src={phoneImgSm} alt="phone" />}
         </section>
     )
 }
