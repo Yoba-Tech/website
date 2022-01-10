@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet";
 import Hero from "./components/Hero"
+import Details from "./components/Details"
 
 const App = () => {
   return (
@@ -19,8 +20,8 @@ const App = () => {
           </header>
           <Hero />
         </section>
-
       </section>
+      <Details />
     </main>
   )
 }
