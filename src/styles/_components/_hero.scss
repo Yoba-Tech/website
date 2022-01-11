@@ -1,5 +1,8 @@
 .top-section {
-  background: $purple;
+  background: url("../../images/heroBg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   color: $white;
   min-height: 900px;
   max-height: 1024px;
@@ -25,10 +28,13 @@
       top: -20px;
       left: 20px;
     }
-    span {
+    .span {
       position: relative;
       top: -60px;
       left: 20px;
+    }
+    span {
+      position: relative;
     }
   }
   p {
@@ -39,6 +45,9 @@
     font-size: 1.125rem;
     line-height: 28px;
     color: $grey;
+    span {
+      position: relative;
+    }
   }
   .input-area {
     @extend .flex-ac-jc;
@@ -76,11 +85,17 @@
       white-space: nowrap;
     }
   }
-  img {
+  #phoneImg {
     // width: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
+  }
+  .heroSvg {
+    position: absolute;
+    bottom: 0;
+    right: -4%;
+
   }
 }
 
@@ -111,14 +126,17 @@
   }
 }
 
-@include media("<=414px") {
+@include media("<=415px") {
   .hero {
-    img {
+    #phoneImg {
       width: 100%;
     }
     h2 {
       font-size: 2rem;
     }
+  }
+  .top-section {
+    min-height: 870px;
   }
 }
 
@@ -137,6 +155,6 @@
     }
   }
   .top-section {
-    min-height: 850px;
+    min-height: 780px;
   }
 }
