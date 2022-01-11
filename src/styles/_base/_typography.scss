@@ -1,5 +1,32 @@
-@import url(https://db.onlinewebfonts.com/c/a5720fed55dd7f058dbbb64e858c0596?family=Guillon);
-@import url(https://db.onlinewebfonts.com/c/fd3359d046c16220efce28a867169a09?family=Guillon+Demi);
+@font-face {
+  font-family: "Guillon Demi";
+  src: url("https://db.onlinewebfonts.com/t/fd3359d046c16220efce28a867169a09.eot");
+  src: url("https://db.onlinewebfonts.com/t/fd3359d046c16220efce28a867169a09.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/fd3359d046c16220efce28a867169a09.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/fd3359d046c16220efce28a867169a09.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/fd3359d046c16220efce28a867169a09.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/fd3359d046c16220efce28a867169a09.svg#Guillon Demi")
+      format("svg");
+}
+
+@font-face {
+  font-family: "Guillon";
+  src: url("https://db.onlinewebfonts.com/t/a5720fed55dd7f058dbbb64e858c0596.eot");
+  src: url("https://db.onlinewebfonts.com/t/a5720fed55dd7f058dbbb64e858c0596.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/a5720fed55dd7f058dbbb64e858c0596.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/a5720fed55dd7f058dbbb64e858c0596.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/a5720fed55dd7f058dbbb64e858c0596.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/a5720fed55dd7f058dbbb64e858c0596.svg#Guillon")
+      format("svg");
+}
 
 body,
 html {
