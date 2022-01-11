@@ -23,9 +23,9 @@ const Hero = () => {
     return (
         <section className="hero">
             <motion.h2
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ type: "tween", delay: 0.4 }}>
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ type: "tween", delay: 0.4, duration: 0.6 }}>
                 Virtual card to handle <br />
                 <motion.svg
                     initial={{ opacity: 0 }}
@@ -33,7 +33,7 @@ const Hero = () => {
                     transition={{
                         repeat: Infinity,
                         repeatType: "reverse",
-                        duration: 1.5
+                        duration: 1
                     }}
                     width="329" height="103" viewBox="0 0 329 103" fill="none" xmlns="http://www.w3.org/2000/motion.svg">
                     <rect x="3.65546" y="3.35502" width="300.904" height="62.6051" transform="matrix(0.999184 -0.0403984 0.0452327 0.998976 10.4391 23.0035)" stroke="#C3F94E" strokeWidth="7" />
@@ -46,14 +46,15 @@ const Hero = () => {
                 <span>transactions.</span>
             </motion.h2>
             <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ type: "tween", delay: 0.8 }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna blandit elementum, vivamus amet, mauris cursus suspendisse aliquet.</motion.p>
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ type: "tween", delay: 0.8, duration: 0.6 }}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna blandit elementum, vivamus amet, mauris cursus suspendisse aliquet.
+            </motion.p>
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ type: "tween", delay: 1.2 }}
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ type: "tween", delay: 1.2, duration: 0.6 }}
                 className="input-area">
                 <motion.input
                     whileHover={{ borderColor: "#d0fa76", scale: 1.02 }}
@@ -68,17 +69,17 @@ const Hero = () => {
             {!isPhone
                 ? <motion.img
                     ref={ref}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ type: "tween", delay: 1.6, duration: 0.8 }}
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ type: "tween", delay: 1.6, duration: 0.6 }}
                     style={{ left: `${isTablet ? 0 : `${right}px`}`, width: `${isTablet ? "100%" : "auto"}` }}
                     id="phoneImg"
                     src={phoneImg} alt="phone" />
                 : <motion.img
                     ref={ref}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ type: "tween", delay: 1.6, duration: 0.8 }}
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ type: "tween", delay: 1.6, duration: 0.6}}
                     style={{ left: `${right}px` }}
                     id="phoneImg"
                     src={phoneImgSm} alt="phone" />}
