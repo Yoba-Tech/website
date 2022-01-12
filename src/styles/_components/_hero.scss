@@ -75,11 +75,9 @@
       white-space: nowrap;
     }
   }
-  #phoneImg {
-    // width: 100%;
+  .phoneImg {
     position: absolute;
     bottom: 0;
-    left: 0;
   }
   .heroSvg {
     position: absolute;
@@ -143,7 +141,7 @@
 
 @include media("<=415px") {
   .hero {
-    #phoneImg {
+    .phoneImg {
       width: 100%;
     }
     h2 {

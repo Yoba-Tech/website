@@ -120,7 +120,7 @@ const Hero = () => {
                         left: `${isTablet ? 0 : `${right}px`}`,
                         width: `${isTablet ? "100%" : "auto"}`,
                     }}
-                    id="phoneImg"
+                    className="phoneImg"
                     src={query.heroImage && query.heroImage.url}
                     alt="phone"
                 />
@@ -132,7 +132,7 @@ const Hero = () => {
                     whileInView={{ x: 0 }}
                     transition={{ type: "tween", delay: 1.6, duration: 0.6 }}
                     style={{ left: `${right}px` }}
-                    id="phoneImg"
+                    className="phoneImg"
                     src={query.heroImageMobile && query.heroImageMobile.url}
                     alt="phone"
                 />
