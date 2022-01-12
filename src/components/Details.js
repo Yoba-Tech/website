@@ -44,6 +44,7 @@ const Details = () => {
         const details = document.querySelector(".details");
         setRight(details.getBoundingClientRect().left);
     }, [windowSize, inView, right]);
+    console.log(query)
 
     return (
         <div className="container">
@@ -60,9 +61,8 @@ const Details = () => {
                                 className="col-text"
                             >
                                 <h2>{item.title}</h2>
-                                <p>
-                                    {item.details}
-                                </p>
+                                <div dangerouslySetInnerHTML={{ __html: item.details }}>
+                                </div>
                             </motion.div>
                             <motion.div
                                 initial={{ opacity: 0 }}
