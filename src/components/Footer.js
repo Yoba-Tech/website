@@ -78,6 +78,8 @@ const Footer = () => {
                                     <a
                                         href={item.url}
                                         key={item.title}
+                                        target="_blank"
+                                        rel="noreferrer"
                                     >{item.title}
                                     </a>
                                 ))
