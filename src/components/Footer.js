@@ -63,6 +63,8 @@ const Footer = () => {
                                         transition={{ type: "tween" }}
                                         href={item.url}
                                         key={item.url}
+                                        target="_blank"
+                                        rel="noreferrer"
                                     >
                                         <img src={item.icon && item.icon.url} alt="logo" height={39} width={39} />
                                     </motion.a>
