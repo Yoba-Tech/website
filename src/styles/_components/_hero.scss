@@ -23,16 +23,6 @@
     font-size: 3rem;
     line-height: 60px;
     letter-spacing: -0.02em;
-    svg {
-      position: relative;
-      top: -20px;
-      left: 20px;
-    }
-    .span {
-      position: relative;
-      top: -60px;
-      left: 20px;
-    }
     span {
       position: relative;
     }
@@ -41,7 +31,7 @@
     max-width: 462px;
     width: 100%;
     margin: auto;
-    margin-top: -20px;
+    margin-top: 20px;
     font-size: 1.125rem;
     line-height: 28px;
     color: $grey;
@@ -95,24 +85,49 @@
     position: absolute;
     bottom: 0;
     right: -4%;
+  }
+  .flicker {
+    color: $mindaro;
+    border: 7px solid $mindaro;
+    transform: matrix(1, -0.04, 0.05, 1, 0, 0);
+    display: inline-block;
+    position: relative;
+    margin-right: 15px;
+    padding: 0 8px;
 
+    svg {
+      position: absolute;
+      &:nth-child(1) {
+        left: -15px;
+        top: -15px;
+      }
+      &:nth-child(2) {
+        left: -15px;
+        bottom: -15px;
+      }
+      &:nth-child(3) {
+        right: -15px;
+        top: -15px;
+      }
+      &:nth-child(4) {
+        right: -15px;
+        bottom: -15px;
+      }
+    }
   }
 }
 
 @include media("<=phone2x") {
   .hero {
     margin-top: 60px;
+    .flicker {
+      margin-right: 0;
+    }
     h2 {
       font-size: 2.25rem;
       line-height: 44px;
-      svg {
-        top: -25px;
-        left: 0;
-        width: 60%;
-      }
     }
     p {
-      margin-top: -30px;
       font-size: 1rem;
       line-height: 24px;
     }
@@ -145,13 +160,6 @@
     margin-top: 40px;
     h2 {
       font-size: 1.75rem;
-      svg {
-        left: -10px;
-        width: 51%;
-      }
-      span {
-        left: 0;
-      }
     }
   }
   .top-section {
