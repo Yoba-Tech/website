@@ -125,7 +125,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 100 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ type: "tween", delay: 1.6, duration: 0.6 }}
-                    // whileInView={{ x: right }}
+                    whileInView={{ x: 0 }}
                     style={{
                         left: `${isTablet ? 0 : `${right}px`}`,
                         width: `${isTablet ? "100%" : "auto"}`,
@@ -139,6 +139,7 @@ const Hero = () => {
                     ref={ref}
                     initial={{ opacity: 0, y: 100 }}
                     animate={{ opacity: 1, y: 0 }}
+                    whileInView={{ x: 0 }}
                     transition={{ type: "tween", delay: 1.6, duration: 0.6 }}
                     style={{ left: `${right}px` }}
                     id="phoneImg"

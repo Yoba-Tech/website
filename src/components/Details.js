@@ -1,9 +1,13 @@
 import svg from "../images/svg.png";
 import svgSm from "../images/svgSm.png";
-import { motion } from "framer-motion";
 import { useWindowSize, useMediaQuery, useOnScreen } from "../hooks";
+
+import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { useQuery, gql } from "@apollo/client";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 
 const DETAIL_GQL = gql`
   {    
@@ -44,7 +48,6 @@ const Details = () => {
         const details = document.querySelector(".details");
         setRight(details.getBoundingClientRect().left);
     }, [windowSize, inView, right]);
-    console.log(query)
 
     return (
         <div className="container">
@@ -70,7 +73,11 @@ const Details = () => {
                                 transition={{ delay: 0.6, duration: 0.6 }}
                                 className="col-image"
                             >
-                                <img src={item.image && item.image.url} width={499} height={420} alt="bank card" />
+                                <LazyLoadImage
+                                    alt="bank card"
+                                    effect="blur"
+                                    width={499} height={420}
+                                    src={item.image && item.image.url} />
                             </motion.div>
                         </div>
                     ))
