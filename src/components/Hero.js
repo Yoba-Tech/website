@@ -1,12 +1,10 @@
 import { useWindowSize, useMediaQuery, useOnScreen } from "../hooks";
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-
-// GRAPHQL
 import { useQuery, gql } from "@apollo/client";
 
 const HERO_GQL = gql`
-  query GetHomePage {
+ {
     homePageCollection {
       items {
         heroDescription
@@ -40,10 +38,10 @@ const Hero = () => {
     const inView = useOnScreen(ref);
 
     useEffect(() => {
-        const phoneImg = document.querySelector("#phoneImg");
-        setRight((windowSize.width - phoneImg.width) / 2);
+        if (ref.current && ref.current.width) {
+            setRight((windowSize.width - ref.current.width) / 2);
+        }
     }, [windowSize, inView]);
-
 
 
     return (
@@ -127,6 +125,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 100 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ type: "tween", delay: 1.6, duration: 0.6 }}
+                    // whileInView={{ x: right }}
                     style={{
                         left: `${isTablet ? 0 : `${right}px`}`,
                         width: `${isTablet ? "100%" : "auto"}`,

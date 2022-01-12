@@ -34,6 +34,9 @@
         height: auto;
       }
     }
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+    }
   }
   .img {
     position: absolute;
@@ -76,7 +79,7 @@
         max-width: none;
       }
       &:nth-child(2) {
-        flex-direction: column-reverse;
+        flex-direction: column;
       }
     }
   }
