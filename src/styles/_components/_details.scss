@@ -29,9 +29,13 @@
     .col-image {
       width: 50%;
       max-width: 499px;
-      img {
-        width: 100%;
-        height: auto;
+      span {
+        width: 100% !important;
+        height: auto !important;
+        img {
+          width: 100%;
+          height: auto;
+        }
       }
     }
     &:nth-child(2n) {
