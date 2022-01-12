@@ -92,6 +92,15 @@
     position: relative;
     margin-right: 15px;
     padding: 0 8px;
+    &::after {
+      position: absolute;
+      content: "";
+      background-image: url(../../images/pointer.svg);
+      width: 49px;
+      height: 49px;
+      left: -52px;
+      bottom: -48px;
+    }
 
     svg {
       position: absolute;

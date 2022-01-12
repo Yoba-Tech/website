@@ -50,7 +50,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ type: "tween", delay: 0.4, duration: 0.6 }}
-            >Virtual card to handle
+            >Spend freely in
                 <br />
                 <motion.span
                     initial={{ opacity: 0 }}
@@ -61,7 +61,7 @@ const Hero = () => {
                         duration: 1,
                     }}
                     className="flicker">
-                    international
+                    Any Currency
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <ellipse cx="8" cy="7.789" rx="8" ry="7.55963" fill="#C3F94E" />
                     </svg>
@@ -75,7 +75,7 @@ const Hero = () => {
                         <ellipse cx="8" cy="7.789" rx="8" ry="7.55963" fill="#C3F94E" />
                     </svg>
                 </motion.span>
-                transactions.
+                when you shop!
             </motion.h2>
 
             <motion.p

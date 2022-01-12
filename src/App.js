@@ -11,6 +11,7 @@ const HEADER_GQL = gql`
   {
     homePageCollection {
       items {
+        pageTitle
         logo {
           url
         }
@@ -35,7 +36,7 @@ const App = () => {
         <main>
           <Helmet>
             <meta charSet="utf-8" />
-            <title>Yoba</title>
+            <title>{query.pageTitle}</title>
             <meta name="description" content="React application" />
           </Helmet>
           <section className="top-section">
