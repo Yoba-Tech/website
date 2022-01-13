@@ -107,7 +107,7 @@ const Hero = () => {
                 <motion.input
                     whileHover={{ borderColor: "#d0fa76", scale: 1.02 }}
                     transition={{ type: "tween" }}
-                    type="text"
+                    type="email"
                     placeholder="Email address"
                     value={input}
                     name="email"
