@@ -45,9 +45,6 @@ const Hero = () => {
 
     //  FORM SETUP
     const [input, setInput] = useState("")
-    const handleSubmit = (e) => {
-        console.log(e)
-    }
 
     return (
         <section className="hero">
