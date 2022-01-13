@@ -1,5 +1,5 @@
 import { useWindowSize, useMediaQuery, useOnScreen } from "../hooks";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useReducer } from "react";
 import { motion } from "framer-motion";
 import { useQuery, gql } from "@apollo/client";
 
@@ -26,6 +26,7 @@ const Hero = () => {
     const isPhone = useMediaQuery("(max-width: 650px)");
     const [right, setRight] = useState(0);
     const [query, setQuery] = useState({});
+    const [btnText, setBtnText] = useState("Get Early Access");
 
     useEffect(() => {
         if (!loading && !error && data) {
@@ -44,8 +45,15 @@ const Hero = () => {
     }, [windowSize, inView]);
 
     //  FORM SETUP
-    const [input, setInput] = useState("");
-    const [btnText, setBtnText] = useState("Get Early Access");
+    const initialValues = {
+        email: "",
+    }
+    const reducer = (currentState, nextState) => ({ ...currentState, ...nextState });
+    const [values, setValues] = useReducer(reducer, initialValues);
+
+    const onChange = (e) => {
+        setValues({ [e.target.name]: e.target.value });
+    }
 
     const encode = (data) => {
         return Object.keys(data)
@@ -60,7 +68,10 @@ const Hero = () => {
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "contact", ...input })
+            body: encode({
+                "form-name": e.target.getAttribute("name"),
+                ...values,
+            })
         })
             .then(() => {
                 setTimeout(() => {
@@ -68,10 +79,9 @@ const Hero = () => {
                 }, 1000);
                 setTimeout(() => {
                     setBtnText("Get Early Access");
-                    setInput("");
                 }, 2500);
             })
-            .catch(error => alert(error));
+            .catch((e) => console.log("Error :", e));
     };
 
 
@@ -151,6 +161,7 @@ const Hero = () => {
                 name="contact"
                 method="post"
                 onSubmit={handleSubmit}
+                data-netlify="true"
             >
                 <input type="hidden" name="form-name" value="contact" />
                 <motion.input
@@ -158,8 +169,8 @@ const Hero = () => {
                     transition={{ type: "tween" }}
                     type="email"
                     placeholder="Email address"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
+                    value={values.name}
+                    onChange={onChange}
                     name="email"
                     required
                 />
