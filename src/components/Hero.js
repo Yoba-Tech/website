@@ -45,8 +45,9 @@ const Hero = () => {
 
     //  FORM SETUP
     const [input, setInput] = useState("")
-    const handleChange = (e) => {
-        setInput(e.target.value)
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(e)
     }
 
     return (
@@ -98,20 +99,25 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ type: "tween", delay: 1.2, duration: 0.6 }}
                 className="input-area"
-                name="contact" method="post"
+                name="contact"
+                method="post"
+                onSubmit={handleSubmit}
             >
+                <input type="hidden" name="form-name" value="contact" />
                 <motion.input
                     whileHover={{ borderColor: "#d0fa76", scale: 1.02 }}
                     transition={{ type: "tween" }}
                     type="text"
                     placeholder="Email address"
                     value={input}
-                    onChange={handleChange}
+                    name="email"
+                    onChange={(e) => setInput(e.target.value)}
                 />
                 <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     transition={{ type: "tween" }}
+                    type="submit"
                 >
                     Get early access
                 </motion.button>
