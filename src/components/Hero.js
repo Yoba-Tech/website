@@ -43,6 +43,11 @@ const Hero = () => {
         }
     }, [windowSize, inView]);
 
+    //  FORM SETUP
+    const [input, setInput] = useState("")
+    const handleChange = (e) => {
+        setInput(e.target.value)
+    }
 
     return (
         <section className="hero">
@@ -88,17 +93,20 @@ const Hero = () => {
                 </span>
             </motion.p>
 
-            <motion.div
+            <motion.form
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ type: "tween", delay: 1.2, duration: 0.6 }}
                 className="input-area"
+                name="contact" method="post"
             >
                 <motion.input
                     whileHover={{ borderColor: "#d0fa76", scale: 1.02 }}
                     transition={{ type: "tween" }}
                     type="text"
                     placeholder="Email address"
+                    value={input}
+                    onChange={handleChange}
                 />
                 <motion.button
                     whileHover={{ scale: 1.1 }}
@@ -107,7 +115,7 @@ const Hero = () => {
                 >
                     Get early access
                 </motion.button>
-            </motion.div>
+            </motion.form>
 
             {!isPhone ? (
                 <motion.img
@@ -118,11 +126,13 @@ const Hero = () => {
                     whileInView={{ x: 0 }}
                     style={{
                         left: `${isTablet ? 0 : `${right}px`}`,
-                        width: `${isTablet ? "100%" : "auto"}`,
+                        width: `${isTablet ? "100%" : ""}`,
                     }}
                     className="phoneImg"
                     src={query.heroImage && query.heroImage.url}
                     alt="phone"
+                    width={1039}
+                // height={488}
                 />
             ) : (
                 <motion.img
@@ -135,6 +145,8 @@ const Hero = () => {
                     className="phoneImg"
                     src={query.heroImageMobile && query.heroImageMobile.url}
                     alt="phone"
+                    width={414}
+                // height={375}
                 />
             )}
         </section>

@@ -127,9 +127,6 @@
 @include media("<=phone2x") {
   .hero {
     margin-top: 60px;
-    .flicker {
-      margin-right: 0;
-    }
     h2 {
       font-size: 2.25rem;
       line-height: 44px;
