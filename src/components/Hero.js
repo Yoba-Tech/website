@@ -43,6 +43,20 @@ const Hero = () => {
         }
     }, [windowSize, inView]);
 
+    //  FORM SETUP
+    const [input, setInput] = useState("")
+    const [btnText, setBtnText] = useState("Get Early Access")
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setTimeout(() => {
+            setBtnText("Email Received")
+        }, 1000);
+        setTimeout(() => {
+            setBtnText("Get Early Access")
+            setInput("")
+        }, 2500);
+    }
+
     return (
         <section className="hero">
             <motion.h2
@@ -93,14 +107,18 @@ const Hero = () => {
                 transition={{ type: "tween", delay: 1.2, duration: 0.6 }}
                 className="input-area"
                 name="contact"
-                method="post">
+                method="post"
+                onSubmit={handleSubmit}
+            >
                 <input type="hidden" name="form-name" value="contact" />
                 <motion.input
                     whileHover={{ borderColor: "#d0fa76", scale: 1.02 }}
                     transition={{ type: "tween" }}
                     type="email"
                     placeholder="Email address"
+                    value={input}
                     name="email"
+                    onChange={(e) => setInput(e.target.value)}
                     required
                 />
                 <motion.button
@@ -109,7 +127,7 @@ const Hero = () => {
                     transition={{ type: "tween" }}
                     type="submit"
                 >
-                    Get early access
+                    {btnText}
                 </motion.button>
             </motion.form>
 
