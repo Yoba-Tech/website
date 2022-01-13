@@ -46,7 +46,6 @@ const Hero = () => {
     //  FORM SETUP
     const [input, setInput] = useState("")
     const handleSubmit = (e) => {
-        e.preventDefault();
         console.log(e)
     }
 
@@ -100,9 +99,7 @@ const Hero = () => {
                 transition={{ type: "tween", delay: 1.2, duration: 0.6 }}
                 className="input-area"
                 name="contact"
-                method="post"
-                onSubmit={handleSubmit}
-            >
+                method="post">
                 <input type="hidden" name="form-name" value="contact" />
                 <motion.input
                     whileHover={{ borderColor: "#d0fa76", scale: 1.02 }}
