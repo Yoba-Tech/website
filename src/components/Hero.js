@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import { useQuery, gql } from "@apollo/client";
 
 const HERO_GQL = gql`
- {
+  {
     homePageCollection {
       items {
         heroDescription
-        heroImage{
+        heroImage {
           url
         }
         heroImageMobile {
@@ -29,9 +29,9 @@ const Hero = () => {
 
     useEffect(() => {
         if (!loading && !error && data) {
-            setQuery(data.homePageCollection.items[0])
+            setQuery(data.homePageCollection.items[0]);
         }
-    }, [loading, error, data])
+    }, [loading, error, data]);
 
     //  FRAMER ANIMATIONS
     const ref = useRef();
@@ -44,18 +44,37 @@ const Hero = () => {
     }, [windowSize, inView]);
 
     //  FORM SETUP
-    const [input, setInput] = useState("")
-    const [btnText, setBtnText] = useState("Get Early Access")
+    const [input, setInput] = useState("");
+    const [btnText, setBtnText] = useState("Get Early Access");
+
+    const encode = (data) => {
+        return Object.keys(data)
+            .map(
+                (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+            )
+            .join("&");
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        setTimeout(() => {
-            setBtnText("Email Received")
-        }, 1000);
-        setTimeout(() => {
-            setBtnText("Get Early Access")
-            setInput("")
-        }, 2500);
-    }
+
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode({ "form-name": "contact", input })
+        })
+            .then(() => {
+                setTimeout(() => {
+                    setBtnText("Email Received");
+                }, 1000);
+                setTimeout(() => {
+                    setBtnText("Get Early Access");
+                    setInput("");
+                }, 2500);
+            })
+            .catch(error => alert(error));
+    };
+
 
     return (
         <section className="hero">
@@ -63,7 +82,8 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ type: "tween", delay: 0.4, duration: 0.6 }}
-            >Spend freely in
+            >
+                Spend freely in
                 <br />
                 <motion.span
                     initial={{ opacity: 0 }}
@@ -73,18 +93,43 @@ const Hero = () => {
                         repeatType: "reverse",
                         duration: 1,
                     }}
-                    className="flicker">
+                    className="flicker"
+                >
                     Any Currency
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
                         <ellipse cx="8" cy="7.789" rx="8" ry="7.55963" fill="#C3F94E" />
                     </svg>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
                         <ellipse cx="8" cy="7.789" rx="8" ry="7.55963" fill="#C3F94E" />
                     </svg>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
                         <ellipse cx="8" cy="7.789" rx="8" ry="7.55963" fill="#C3F94E" />
                     </svg>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
                         <ellipse cx="8" cy="7.789" rx="8" ry="7.55963" fill="#C3F94E" />
                     </svg>
                 </motion.span>
@@ -96,9 +141,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ type: "tween", delay: 0.8, duration: 0.6 }}
             >
-                <span>
-                    {query.heroDescription}
-                </span>
+                <span>{query.heroDescription}</span>
             </motion.p>
 
             <motion.form
@@ -117,8 +160,8 @@ const Hero = () => {
                     type="email"
                     placeholder="Email address"
                     value={input}
-                    name="email"
                     onChange={(e) => setInput(e.target.value)}
+                    name="email"
                     required
                 />
                 <motion.button
