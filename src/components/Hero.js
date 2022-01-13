@@ -43,9 +43,6 @@ const Hero = () => {
         }
     }, [windowSize, inView]);
 
-    //  FORM SETUP
-    const [input, setInput] = useState("")
-
     return (
         <section className="hero">
             <motion.h2
@@ -103,9 +100,8 @@ const Hero = () => {
                     transition={{ type: "tween" }}
                     type="email"
                     placeholder="Email address"
-                    value={input}
                     name="email"
-                    onChange={(e) => setInput(e.target.value)}
+                    required
                 />
                 <motion.button
                     whileHover={{ scale: 1.1 }}
