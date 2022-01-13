@@ -79,6 +79,7 @@ const Hero = () => {
                 }, 1000);
                 setTimeout(() => {
                     setBtnText("Get Early Access");
+                    setValues({ ...initialValues })
                 }, 2500);
             })
             .catch((e) => console.log("Error :", e));
@@ -169,7 +170,7 @@ const Hero = () => {
                     transition={{ type: "tween" }}
                     type="email"
                     placeholder="Email address"
-                    value={values.name}
+                    value={values.email}
                     onChange={onChange}
                     name="email"
                     required
